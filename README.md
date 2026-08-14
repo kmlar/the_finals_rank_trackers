@@ -8,10 +8,13 @@ Installable comme une vraie app sur **PC, Android et iOS** (PWA — pas besoin d
 
 ## ✨ Fonctionnalités
 
-- **Rang automatique** — calculé à partir du RS saisi (Bronze / Argent / Or / Platine / Diamant)
+- **Rang automatique** — calculé à partir du RS saisi (Bronze / Argent / Or / Platine / Diamant / Ruby)
 - **Historique par saison** — clôture une saison, l'historique des précédentes reste consultable, rien ne se mélange après un reset
 - **Graphique de progression** — courbe du RS dans le temps, filtrable sur 7 jours / 30 jours / tout
 - **Projection de rang** — estimation du nombre de parties avant le prochain palier, au rythme actuel
+- **Records** — série actuelle, meilleure série, meilleur gain, pire perte
+- **Générateur de loadout** — tirage aléatoire par classe (Léger/Moyen/Lourd), ou construction manuelle ; favoris sauvegardés
+- **Galerie de cartes** — les arènes du jeu avec photo d'ambiance et vue du dessus zoomable
 - **Édition & suppression** des entrées, détection des doublons
 - **Export / import** des données en JSON
 - **Partage Discord** — capture ta carte de rang et l'envoie directement via le menu de partage natif (mobile)

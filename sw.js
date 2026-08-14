@@ -1,4 +1,4 @@
-const CACHE_NAME = 'tf-rank-tracker-v1';
+const CACHE_NAME = 'tf-rank-tracker-v2';
 const CORE_ASSETS = [
   './index.html',
   './manifest.json',
@@ -7,10 +7,20 @@ const CORE_ASSETS = [
   './icon-512-maskable.png',
   './icon-180.png'
 ];
+// Best-effort only: caching this must never block installation of the core
+// assets above (e.g. if the CDN is briefly unreachable during install).
+const OPTIONAL_ASSETS = [
+  'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js'
+];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(CORE_ASSETS))
+    caches.open(CACHE_NAME)
+      .then((cache) => cache.addAll(CORE_ASSETS)
+        .then(() => Promise.all(
+          OPTIONAL_ASSETS.map((url) => cache.add(url).catch(() => {}))
+        ))
+      )
   );
   self.skipWaiting();
 });
@@ -39,7 +49,7 @@ self.addEventListener('fetch', (event) => {
           });
           return response;
         })
-        .catch(() => cached);
+        .catch(() => cached || (event.request.mode === 'navigate' ? caches.match('./index.html') : undefined));
     })
   );
 });
