@@ -1,4 +1,4 @@
-const CACHE_NAME = 'tf-rank-tracker-v2';
+const CACHE_NAME = 'tf-rank-tracker-v3';
 const CORE_ASSETS = [
   './index.html',
   './manifest.json',
