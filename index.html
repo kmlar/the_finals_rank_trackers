@@ -70,6 +70,18 @@ body{
 }
 .wrap{max-width:720px;margin:0 auto;}
 
+/* Pure-black strip behind the notch/Dynamic Island so it blends with the
+   physical bezel instead of showing a seam against --bg (#0a0a10, not true black). */
+body::before{
+  content:"";
+  position:fixed;
+  top:0;left:0;right:0;
+  height:env(safe-area-inset-top, 0px);
+  background:#000;
+  z-index:9999;
+  pointer-events:none;
+}
+
 /* ---------- WINDOW FRAME ---------- */
 .win-frame{
   background:var(--panel);border:1px solid var(--border);border-radius:0;
