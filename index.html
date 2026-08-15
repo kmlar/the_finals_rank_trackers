@@ -64,7 +64,7 @@ body{
   background:var(--bg);
   color:var(--text);
   font-family:'Inter',sans-serif;
-  padding:24px 14px 50px;
+  padding:max(24px, calc(env(safe-area-inset-top, 0px) + 8px)) 14px max(50px, calc(env(safe-area-inset-bottom, 0px) + 20px));
   min-height:100vh;
   transition:background .15s ease,color .15s ease;
 }
